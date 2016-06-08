@@ -1,4 +1,4 @@
-package org.sharpsw.bindb.config;
+package org.soaring.bindb.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
