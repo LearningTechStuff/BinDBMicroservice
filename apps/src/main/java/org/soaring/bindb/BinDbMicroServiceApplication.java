@@ -1,5 +1,6 @@
 package org.soaring.bindb;
 
+import org.apache.log4j.Logger;
 import org.soaring.bindb.config.RedisConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -29,11 +30,13 @@ import java.util.EnumSet;
 @SpringBootApplication
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class BinDBMicroserviceApplication {
+	private static final Logger logger = Logger.getLogger(BinDBMicroserviceApplication.class);
 
 	@Resource
 	private RedisConfiguration redisConfiguration;
 
 	public static void main(String[] args) {
+		logger.info("Starting BinDBMicroserviceApplication now");
 		SpringApplication.run(BinDBMicroserviceApplication.class, args);
 	}
 
