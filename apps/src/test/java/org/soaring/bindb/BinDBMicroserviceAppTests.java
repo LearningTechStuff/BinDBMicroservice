@@ -7,9 +7,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = BinDBMicroserviceApplication.class)
+@SpringApplicationConfiguration(classes = BinDBMicroserviceApp.class)
 @WebAppConfiguration
-public class BinDBMicroserviceApplicationTests {
+public class BinDBMicroserviceAppTests {
 
 	@Test
 	public void contextLoads() {

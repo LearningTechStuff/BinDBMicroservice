@@ -1,7 +1,6 @@
 package org.soaring.bindb;
 
 import org.apache.log4j.Logger;
-import org.soaring.bindb.config.RedisConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,12 +10,9 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import javax.annotation.Resource;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,15 +25,12 @@ import java.util.EnumSet;
 @EnableWebMvc
 @SpringBootApplication
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
-public class BinDBMicroserviceApplication {
-	private static final Logger logger = Logger.getLogger(BinDBMicroserviceApplication.class);
-
-	@Resource
-	private RedisConfiguration redisConfiguration;
+public class BinDBMicroserviceApp {
+	private static final Logger logger = Logger.getLogger(BinDBMicroserviceApp.class);
 
 	public static void main(String[] args) {
-		logger.info("Starting BinDBMicroserviceApplication now");
-		SpringApplication.run(BinDBMicroserviceApplication.class, args);
+		logger.info("Starting BinDBMicroserviceApp now");
+		SpringApplication.run(BinDBMicroserviceApp.class, args);
 	}
 
 	@Bean
@@ -77,13 +70,5 @@ public class BinDBMicroserviceApplication {
 		public void destroy() {
 		}
 
-	}
-
-	@Bean
-	public StringRedisTemplate getRedisTemplate() {
-		JedisConnectionFactory conn = new JedisConnectionFactory();
-		conn.setPort(redisConfiguration.getPort());
-		conn.setHostName(redisConfiguration.getHost());
-		return new StringRedisTemplate(conn);
 	}
 }
