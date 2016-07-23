@@ -9,6 +9,7 @@ public class RedisConfiguration {
 
     private String host;
     private Integer port;
+    private Integer ttl;
 
     public void setHost(String host) {
         this.host = host;
@@ -24,5 +25,13 @@ public class RedisConfiguration {
 
     public Integer getPort() {
         return port;
+    }
+
+    public void setTtl(Integer ttl) {
+        this.ttl = ttl;
+    }
+
+    public Integer getTtl() {
+        return ttl;
     }
 }
